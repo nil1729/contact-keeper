@@ -1,4 +1,4 @@
-# Event Booking App
+# Contact Keeping App
 
 - #### This site is live [here](https://contact--keeper.herokuapp.com/).
 - #### Github Repository [link](https://github.com/nil1729/contact-keeper).
