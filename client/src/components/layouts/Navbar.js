@@ -1,30 +1,30 @@
-import React, {useEffect, useContext} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AuthContext from '../../context/auth/authContext';
 import ContactContext from '../../context/contact/contactContext';
 
 
-const Navbar = ({title, icon}) => {
+const Navbar = ({ title, icon }) => {
     const authContext = useContext(AuthContext);
     const contactContext = useContext(ContactContext);
-    const {isAuthenticated, user, logout} = authContext;
-    const {clearContacts } = contactContext;
-    const onLogout = ()=>{
+    const { isAuthenticated, user, logout } = authContext;
+    const { clearContacts } = contactContext;
+    const onLogout = () => {
         logout();
         clearContacts();
     }
     const authLinks = (
         <>
             <li className="nav-item">
-                <p className="nav-link text-light text-capitalize">Hello <span className="font-weight-bold">{user && user.name}</span></p>
+                <p className="mb-0 nav-link text-light text-capitalize">Hello <span className="font-weight-bold">{user && user.name}</span></p>
             </li>
             <li className="nav-item">
                 <span
                     onClick={onLogout}
                     className="nav-link text-light"
-                    style={{cursor:'pointer'}}>
-                    <i className="fas fa-sign-out-alt mr-2"></i>        
+                    style={{ cursor: 'pointer' }}>
+                    <i className="fas fa-sign-out-alt mr-2"></i>
                         Logout
                 </span>
             </li>
@@ -43,16 +43,16 @@ const Navbar = ({title, icon}) => {
             </li>
         </>
     )
-  return (
-    <nav className="navbar navbar-dark bg-primary">
-        <span className="navbar-brand mb-0 h1 text-light"><i className={icon} style={{fontSize:'1.3em'}}></i> {'  '}{title}</span>
-        <ul className="nav">
-            {
-                isAuthenticated ? authLinks : guestLinks
-            }
-        </ul>
-    </nav>
-  )
+    return (
+        <nav className="navbar navbar-dark bg-primary">
+            <span className="navbar-brand mb-0 h1 text-light"><i className={icon} style={{ fontSize: '1.3em' }}></i> {'  '}{title}</span>
+            <ul className="nav">
+                {
+                    isAuthenticated ? authLinks : guestLinks
+                }
+            </ul>
+        </nav>
+    )
 }
 
 Navbar.propTypes = {
