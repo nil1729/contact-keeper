@@ -1,4 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://nilanjan-admin:nilanjan@contact-keeper-2zhy3.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret": "nilanjan"
-}
