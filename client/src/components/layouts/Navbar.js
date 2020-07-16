@@ -1,5 +1,5 @@
-import React, { useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AuthContext from '../../context/auth/authContext';
 import ContactContext from '../../context/contact/contactContext';
@@ -17,6 +17,9 @@ const Navbar = ({ title, icon }) => {
     const authLinks = (
         <>
             <li className="nav-item">
+                <NavLink className="nav-link text-light" to="/">About</NavLink>
+            </li>
+            <li className="nav-item">
                 <p className="mb-0 nav-link text-light text-capitalize">Hello <span className="font-weight-bold">{user && user.name}</span></p>
             </li>
             <li className="nav-item">
@@ -33,19 +36,19 @@ const Navbar = ({ title, icon }) => {
     const guestLinks = (
         <>
             <li className="nav-item">
-                <Link className="nav-link text-light" to="/">About</Link>
+                <NavLink className="nav-link text-light" to="/">About</NavLink>
             </li>
             <li className="nav-item">
-                <Link className="nav-link text-light" to="/register">Register</Link>
+                <NavLink className="nav-link text-light" to="/register">Register</NavLink>
             </li>
             <li className="nav-item">
-                <Link className="nav-link text-light" to="/login">Login</Link>
+                <NavLink className="nav-link text-light" to="/login">Login</NavLink>
             </li>
         </>
     )
     return (
         <nav className="navbar navbar-dark bg-primary">
-            <span className="navbar-brand mb-0 h1 text-light"><i className={icon} style={{ fontSize: '1.3em' }}></i> {'  '}{title}</span>
+            <NavLink to="/home" style={{ pointerEvents: isAuthenticated ? '' : 'none' }} className="navbar-brand mb-0 h1 text-light"><i className={icon} style={{ fontSize: '1.3em' }}></i> {'  '}{title}</NavLink>
             <ul className="nav">
                 {
                     isAuthenticated ? authLinks : guestLinks
