@@ -25,6 +25,25 @@ code {
     monospace;
 }
 
+/* Transition Effects */
+.my-item-enter {
+  opacity: 0;
+}
+
+.my-item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.my-item-exit {
+  opacity: 1;
+}
+
+.my-item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
 /* Loader */
 .intro-spinner {
   margin: 100px auto;
